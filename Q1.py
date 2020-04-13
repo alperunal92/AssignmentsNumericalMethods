@@ -1,49 +1,42 @@
 from numpy 
-import array, zeros, fabs, linalg
-
-a = array([[2, -2, 0],[1, -1, 1],[0, -3, -2]], float)
-b = array([-6, 1, 5], float)
+import array, zeros, fabs, linalg, numpy as np
 
 
-def solve(a, b):
+def GaussElimination(M):
+    """
+    Gaussian elimination method for systems of equations.
+    the function receives a matrix in the following way:
+    f1 -->  2*x -2y   = 6
+    f2 -->  x - y + z = 1
+    f3 -->  3y  -2*z = -5
+    M = [
+        [ 2, -2,  0,   6],
+        [ 1, -1,  1,   1],
+        [ 0,  3, -2,  -5]
+    ]
+    :param M: Matrix of system of equations
+    :return b: Values of the system variables of equations in a list []
+    Example:
+    r = GaussElimination(M)
+    """
+
+    x = len(M)
+    b = []
+    m = []
+
+    for i in range(0, x):
+        b.append(M[i][x])
+        m.append(M[i][:x])
+
     n = len(b)
-    x = zeros(n, float)
-    eps = 0.5e-15
 
-    # Elimination
-    for k in range(n):
-        if fabs(a[k, k]) < eps:
-            for i in range(k + 1, n):
-                if (fabs(a[i, k] > a[k, k])):
-                    a[[k, i]] = a[[i, k]]
-                    b[[k, i]] = b[[i, k]]
-                    break
+    for c in range(0, n - 1):
+        for r in range(c + 1, n):
+            if m[r][c] != 0.0:
+                temp = m[r][c] / m[c][c]
+                m[r][c + 1:n] -= np.asarray(temp) * m[c][c + 1:n]
+                b[r] -= np.asarray(temp) * b[c]
+    for c in range(n - 1, -1, -1):
+        b[c] = (b[c] - np.dot(m[c][c + 1:n], b[c + 1:n])) / m[c][c]
 
-        for i in range(k + 1, n):
-            if a[i, k] == 0:
-                continue
-            factor = a[k, k] / a[i, k]
-            for j in range(k, n):
-                a[i, j] = a[k, j] - a[i, j] * factor
-            b[i] = b[k] - factor * b[i]
-
-    # Back substitution
-    x[n - 1] = b[n - 1] / a[n - 1][n - 1]
-
-    for i in range(n - 2, -1, -1):
-        sum = 0
-        for j in range(i + 1, n):
-            sum += (x[j] * a[i, j])
-        x[i] = (b[i] - sum) / a[i, i]
-
-    return x
-
-
-def compare_with_numpy(a, b):
-    numpy_sol = linalg.solve(a, b)
-    solution = solve(a, b)
-    print(solution)
-
-
-
-compare_with_numpy(a, b)
+    return b
