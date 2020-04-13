@@ -1,7 +1,8 @@
-from numpy import array, zeros, fabs, linalg
+from numpy 
+import array, zeros, fabs, linalg
 
-a = np.array([[2, -2, 0],[1, -1, 1],[0, -3, -2]], float)
-b = np.array([-6, 1, 5], float)
+a = array([[2, -2, 0],[1, -1, 1],[0, -3, -2]], float)
+b = array([-6, 1, 5], float)
 
 
 def solve(a, b):
