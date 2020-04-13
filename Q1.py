@@ -1,4 +1,3 @@
-from numpy 
 import numpy as np
 
 def GaussElimination(M):
