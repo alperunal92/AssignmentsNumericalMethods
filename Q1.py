@@ -44,9 +44,9 @@ def gauss(A, b):
 
 # Main program starts here
 if __name__ == '__main__':
-    A = np.array([[2,   2,   0],
+    A = np.array([[2,  -2,   0],
                   [1,  -1,   1],
-                  [0,  -3,   2]])
+                  [0,   3,  -2]])
     b = np.array([-6, 1, -5])
     x = gauss(A, b)
     print('Gauss result is x = \n %s' % x)
