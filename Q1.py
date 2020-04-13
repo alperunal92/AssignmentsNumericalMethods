@@ -1,6 +1,5 @@
 from numpy 
-import array, zeros, fabs, linalg, numpy as np
-
+import numpy as np
 
 def GaussElimination(M):
     """
