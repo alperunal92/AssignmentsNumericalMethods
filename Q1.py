@@ -1,40 +1,52 @@
 import numpy as np
 
-def GaussElimination(M):
+def forward_elimination(A, b, n):
     """
-    Gaussian elimination method for systems of equations.
-    the function receives a matrix in the following way:
-    f1 -->  2*x -2y   = 6
-    f2 -->  x - y + z = 1
-    f3 -->  3y  -2*z = -5
-    M = [
-        [ 2, -2,  0,   6],
-        [ 1, -1,  1,   1],
-        [ 0,  3, -2,  -5]
-    ]
-    :param M: Matrix of system of equations
-    :return b: Values of the system variables of equations in a list []
-    Example:
-    r = GaussElimination(M)
+    Calculates the forward part of Gaussian elimination.
     """
+    for row in range(0, n-1):
+        for i in range(row+1, n):
+            factor = A[i,row] / A[row,row]
+            for j in range(row, n):
+                A[i,j] = A[i,j] - factor * A[row,j]
 
-    x = len(M)
-    b = []
-    m = []
+            b[i] = b[i] - factor * b[row]
 
-    for i in range(0, x):
-        b.append(M[i][x])
-        m.append(M[i][:x])
+        print('A = \n%s and b = %s' % (A,b))
+    return A, b
 
-    n = len(b)
+def back_substitution(a, b, n):
+    """"
+    Does back substitution, returns the Gauss result.
+    """
+    x = np.zeros((n,1))
+    x[n-1] = b[n-1] / a[n-1, n-1]
+    for row in range(n-2, -1, -1):
+        sums = b[row]
+        for j in range(row+1, n):
+            sums = sums - a[row,j] * x[j]
+        x[row] = sums / a[row,row]
+    return x
 
-    for c in range(0, n - 1):
-        for r in range(c + 1, n):
-            if m[r][c] != 0.0:
-                temp = m[r][c] / m[c][c]
-                m[r][c + 1:n] -= np.asarray(temp) * m[c][c + 1:n]
-                b[r] -= np.asarray(temp) * b[c]
-    for c in range(n - 1, -1, -1):
-        b[c] = (b[c] - np.dot(m[c][c + 1:n], b[c + 1:n])) / m[c][c]
+def gauss(A, b):
+    """
+    This function performs Gauss elimination without pivoting.
+    """
+    n = A.shape[0]
 
-    return b
+    # Check for zero diagonal elements
+    if any(np.diag(A)==0):
+        raise ZeroDivisionError(('Division by zero will occur; '
+                                  'pivoting currently not supported'))
+
+    A, b = forward_elimination(A, b, n)
+    return back_substitution(A, b, n)
+
+# Main program starts here
+if __name__ == '__main__':
+    A = np.array([[2,   2,   0],
+                  [1,  -1,   1],
+                  [0,  -3,   2]])
+    b = np.array([-6, 1, -5])
+    x = gauss(A, b)
+    print('Gauss result is x = \n %s' % x)
