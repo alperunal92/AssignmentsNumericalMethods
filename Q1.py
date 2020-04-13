@@ -1,3 +1,5 @@
+# Maintainer Alper ÜNAL 1170393
+
 import numpy as np
 
 def forward_elimination(A, b, n):
