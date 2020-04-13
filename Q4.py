@@ -1,3 +1,5 @@
+# Maintainer Alper ÜNAL 1170393
+
 from math import sqrt
 from pprint import pprint
  
