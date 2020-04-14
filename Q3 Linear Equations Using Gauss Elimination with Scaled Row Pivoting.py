@@ -1,6 +1,4 @@
 import numpy as np
-import swap
-import error
 
 def gaussPivot(a,b,tol=1.0e-12):
     n = len(b)
