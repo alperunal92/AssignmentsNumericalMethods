@@ -34,10 +34,10 @@ def gaussPivot(a,b,tol=1.0e-12):
 
     # Main program starts here
     if __name__ == '__main__':
-        A = np.array([[1,  -1,   2,  1],
+        a = np.array([[1,  -1,   2,  1],
                       [3,   2,   1,  4],
                       [5,   8,   6,  3],
                       [4,   2,   5,  3]])
         b = np.array([1, 1, 1, -1])
-        x = gauss(A, b)
+        x = gauss(a, b)
         print('Gauss result is x = \n %s' % x)
