@@ -1,7 +1,5 @@
-import numpy as np
-import swap
-import error
-import os, sys
+from numpy import zeros,argmax,dot
+from modules import swap
 
 def gaussPivot(a,b,tol=1.0e-12):
     n = len(b)
