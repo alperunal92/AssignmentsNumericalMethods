@@ -1,10 +1,6 @@
 # Maintainer Alper ÜNAL 1170393
 # Linear Equations Using Gauss Elimination with Scaled Row Pivoting
 
-## module gaussPivot
-’’’ x = gaussPivot(a,b,tol=1.0e-12).
-Solves [a]{x} = {b} by Gauss elimination with scaled row pivoting
-’’’
 import numpy as np
 import swap
 import error
