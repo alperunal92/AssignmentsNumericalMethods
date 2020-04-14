@@ -1,7 +1,3 @@
-# coding=utf-8
-# Maintainer Alper ÜNAL 1170393
-# Linear Equations Using an LU Decomposition Method
-
 import pprint
 
 def mult_matrix(M, N):

@@ -1,7 +1,3 @@
-# coding=utf-8
-# Maintainer Alper ÜNAL 1170393
-# Linear Equations Using Gauss Elimination with Scaled Row Pivoting
-
 import numpy as np
 import swap
 import error

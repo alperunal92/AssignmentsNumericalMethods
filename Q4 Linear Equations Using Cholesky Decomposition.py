@@ -1,7 +1,3 @@
-# coding=utf-8
-# Maintainer Alper ÜNAL 1170393
-# Linear Equations Using Cholesky Decomposition
-
 from math import sqrt
 from pprint import pprint
  
