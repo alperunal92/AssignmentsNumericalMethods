@@ -1,6 +1,5 @@
-# coding: utf-8
-from numpy import *
-import swap    
+import numpy as np
+import swap
 import error
 
 def gaussPivot(a,b,tol=1.0e-12):
