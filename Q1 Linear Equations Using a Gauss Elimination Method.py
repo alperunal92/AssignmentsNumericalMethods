@@ -1,3 +1,4 @@
+# coding=utf-8
 # Maintainer Alper ÜNAL 1170393
 # Linear Equations Using a Gauss Elimination Method
 
