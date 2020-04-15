@@ -1,9 +1,3 @@
-"""
-Maintainer Alper ÜNAL 1170393
-Solving Linear Equations Using a Gauss Elimination Method python code.
-
-"""
-
 import numpy as np
 
 def forward_elimination(A, b, n):
