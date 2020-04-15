@@ -1,6 +1,7 @@
 """
 Maintainer Alper ÜNAL 1170393
 Solving Linear Equations Using a Gauss Elimination Method python code.
+
 """
 
 import numpy as np
