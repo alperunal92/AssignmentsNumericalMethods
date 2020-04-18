@@ -4,7 +4,7 @@ A = np.array([[1,  -1,   2,  1],
               [3,   2,   1,  4],
               [5,   8,   6,  3],
               [4,   2,   5,  3]])
-R = np.array([1, 1, 1, -1])
+R = np.array([[1],[1],[1],[-1]])
 AR=np.append(A,R,axis=1)  #append the right-handside vector into coefficient matrix as a column
 n=len(AR)      #size of the coefficient array (number of rows)
 
