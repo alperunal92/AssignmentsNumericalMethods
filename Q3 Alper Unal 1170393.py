@@ -53,5 +53,5 @@ def Gauss_scaled(A, B):
                       [5,   8,   6,  3],
                       [4,   2,   5,  3]])
         B = np.array([1, 1, 1, -1])
-        x = gaussPivot(A, B)
+        x = Gauss_scaled(A, B)
         print('Gauss result is x = \n %s' % x)
