@@ -1,4 +1,4 @@
-from numpy as np
+import numpy as np
 
 def zamienW(M, i,j):
     
