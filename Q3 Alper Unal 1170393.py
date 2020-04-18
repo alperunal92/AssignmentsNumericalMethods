@@ -45,5 +45,5 @@ def gaussPivot(a,b,tol=1.0e-12):
                       [5,   8,   6,  3],
                       [4,   2,   5,  3]])
         b = np.array([1, 1, 1, -1])
-        x = gauss(a, b)
+        x = gaussPivot(a, b)
         print('Gauss result is x = \n %s' % x)
