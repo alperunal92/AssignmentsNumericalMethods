@@ -1,2 +1,0 @@
-# AssignmentsNumerical
-Numerical Methods
